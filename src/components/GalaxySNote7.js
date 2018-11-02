@@ -19,13 +19,20 @@ export default class GalaxySNote7 extends React.Component {
   }
 
   throwAFit = () => {
+    this.props.alterEnvironment("inhospitable")
+    this.relax()
   }
 
   relax = () => {
+    this.setState({
+      panicked: false
+    })
   }
 
   exclaim = () => {
-    if (this.state.panicked) return
+    this.setState({
+      panicked: true
+    })
     this.exclaimAudio.play()
     this.squeelAudio.play()
   }
